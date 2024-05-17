@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckhh5ewq8ttq8"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Upgrades/speed3.gd" id="1_01c1y"]
+
+[node name="speed3" type="Node2D"]
+script = ExtResource("1_01c1y")

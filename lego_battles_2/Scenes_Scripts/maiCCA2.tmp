@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://chc1btrcvf4nn"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_ged76"]
+[ext_resource type="PackedScene" uid="uid://c8ejdg0br1lyo" path="res://Scenes/entity_manager.tscn" id="2_dprvn"]
+[ext_resource type="PackedScene" uid="uid://t1yo36htyys" path="res://Scenes/player.tscn" id="2_q7v5v"]
+[ext_resource type="PackedScene" uid="uid://b3vyjpyuuix22" path="res://Scenes/ui.tscn" id="3_r2ye2"]
+[ext_resource type="Texture2D" uid="uid://cc7db6ehscwth" path="res://Assets/backgrounddetailed1.png" id="5_sos52"]
+
+[node name="Main" type="Node" groups=["main"]]
+script = ExtResource("1_ged76")
+
+[node name="EntityManager" parent="." instance=ExtResource("2_dprvn")]
+
+[node name="Player" parent="EntityManager" instance=ExtResource("2_q7v5v")]
+
+[node name="Enemy1Timer" type="Timer" parent="EntityManager"]
+autostart = true
+
+[node name="Enemy2Timer" type="Timer" parent="EntityManager"]
+wait_time = 5.0
+autostart = true
+
+[node name="UI" parent="." instance=ExtResource("3_r2ye2")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -6
+z_as_relative = false
+offset_left = -2667.0
+offset_top = -1391.0
+offset_right = 2853.0
+offset_bottom = 1609.0
+texture = ExtResource("5_sos52")
+stretch_mode = 1
+
+[connection signal="playerHit" from="EntityManager/Player" to="." method="_on_player_player_hit"]
+[connection signal="playerHit" from="EntityManager/Player" to="UI" method="_on_player_player_hit"]
+[connection signal="timeout" from="EntityManager/Enemy1Timer" to="EntityManager" method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="EntityManager/Enemy2Timer" to="." method="_on_enemy_2_timer_timeout"]
+[connection signal="timeout" from="EntityManager/Enemy2Timer" to="EntityManager" method="_on_enemy_2_timer_timeout"]
+[connection signal="spawn_building" from="UI" to="." method="_on_ui_spawn_building"]

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://ynujavcgljfv"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Abilities/pulse1.gd" id="1_l50uf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_malsg"]
+radius = 290.725
+
+[node name="pulse1" type="Node2D"]
+position = Vector2(242, 166)
+script = ExtResource("1_l50uf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 59.0
+offset_bottom = 31.0
+text = "pulse1"
+
+[node name="AOErange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AOErange"]
+shape = SubResource("CircleShape2D_malsg")
+debug_color = Color(0.907292, 0.177178, 0.60778, 0.42)
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1bbnb7dys2yq"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/WorldItems/crashed_drone.gd" id="1_cu37j"]
+[ext_resource type="Texture2D" uid="uid://gj6vfdaykgc1" path="res://Assets/crasheddrone.png" id="1_vain2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g13vw"]
+radius = 51.0098
+
+[node name="CrashedDrone" type="Node2D"]
+script = ExtResource("1_cu37j")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5, 0)
+shape = SubResource("CircleShape2D_g13vw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(25, 3)
+scale = Vector2(0.175107, 0.207688)
+texture = ExtResource("1_vain2")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

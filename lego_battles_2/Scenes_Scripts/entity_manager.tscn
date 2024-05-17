@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8ejdg0br1lyo"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/EntityManager.gd" id="1_u86ca"]
+
+[node name="EntityManager" type="Node2D"]
+script = ExtResource("1_u86ca")
+
+[node name="SpawnPoint1" type="Marker2D" parent="."]
+position = Vector2(52, 128)
+
+[node name="SpawnPoint2" type="Marker2D" parent="."]
+position = Vector2(430, 121)
+
+[node name="SpawnPoint3" type="Marker2D" parent="."]
+position = Vector2(736, 125)
+
+[node name="SpawnPoint4" type="Marker2D" parent="."]
+position = Vector2(1037, 128)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 36.0
+offset_top = 107.0
+offset_right = 76.0
+offset_bottom = 147.0
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 410.0
+offset_top = 105.0
+offset_right = 450.0
+offset_bottom = 145.0
+color = Color(0.556863, 0.0823529, 0.682353, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 715.0
+offset_top = 108.0
+offset_right = 755.0
+offset_bottom = 148.0
+color = Color(0.172549, 0.396078, 0.894118, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 1016.0
+offset_top = 109.0
+offset_right = 1056.0
+offset_bottom = 149.0
+color = Color(0.854902, 0.454902, 0.0941176, 1)

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbw4nuef04d2i"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Upgrades/armour1.gd" id="1_7g7kb"]
+
+[node name="Armour1" type="Node2D"]
+script = ExtResource("1_7g7kb")

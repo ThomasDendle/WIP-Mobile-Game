@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckibkgv0dp18i"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Abilities/tele1.gd" id="1_obdd6"]
+
+[node name="tele1" type="Node2D"]
+script = ExtResource("1_obdd6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 318.0
+offset_top = 233.0
+offset_right = 375.0
+offset_bottom = 264.0
+text = "TELE 1"

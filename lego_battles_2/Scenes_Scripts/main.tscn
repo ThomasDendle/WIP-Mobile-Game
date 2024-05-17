@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://chc1btrcvf4nn"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/main.gd" id="1_ged76"]
+[ext_resource type="Script" path="res://Scenes_Scripts/AbilUpManager.gd" id="2_4vu4d"]
+[ext_resource type="PackedScene" uid="uid://0e67v37hpmwo" path="res://Scenes_Scripts/Enemies/enemy1.tscn" id="2_7v2nl"]
+[ext_resource type="PackedScene" uid="uid://c8ejdg0br1lyo" path="res://Scenes_Scripts/entity_manager.tscn" id="2_dprvn"]
+[ext_resource type="PackedScene" uid="uid://t1yo36htyys" path="res://Scenes_Scripts/player.tscn" id="2_q7v5v"]
+[ext_resource type="PackedScene" uid="uid://b3vyjpyuuix22" path="res://Scenes_Scripts/UI/ui.tscn" id="3_r2ye2"]
+[ext_resource type="Texture2D" uid="uid://cc7db6ehscwth" path="res://Assets/backgrounddetailed1.png" id="5_sos52"]
+[ext_resource type="PackedScene" uid="uid://clthylv4xfnaj" path="res://Scenes_Scripts/Enemies/training_dummy.tscn" id="6_wd6qt"]
+[ext_resource type="PackedScene" uid="uid://c1bbnb7dys2yq" path="res://Scenes_Scripts/WorldItems/crashed_drone.tscn" id="8_5fa7o"]
+
+[node name="Main" type="Node2D" groups=["main"]]
+script = ExtResource("1_ged76")
+
+[node name="Player" parent="." instance=ExtResource("2_q7v5v")]
+position = Vector2(575, 557)
+
+[node name="WeaponsManager" type="Node2D" parent="."]
+
+[node name="AbilUpManager" type="Node2D" parent="." groups=["AUmanager"]]
+script = ExtResource("2_4vu4d")
+
+[node name="EntityManager" parent="." instance=ExtResource("2_dprvn")]
+position = Vector2(2, 0)
+
+[node name="Enemy1Timer" type="Timer" parent="EntityManager"]
+wait_time = 2.277
+autostart = true
+
+[node name="Enemy2Timer" type="Timer" parent="EntityManager"]
+wait_time = 2.04
+
+[node name="Enemy3Timer" type="Timer" parent="EntityManager"]
+wait_time = 2.996
+
+[node name="Enemy4Timer" type="Timer" parent="EntityManager"]
+
+[node name="UI" parent="." instance=ExtResource("3_r2ye2")]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -6
+z_as_relative = false
+offset_left = -2667.0
+offset_top = -1391.0
+offset_right = 2853.0
+offset_bottom = 1609.0
+texture = ExtResource("5_sos52")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Training Dummy" parent="." instance=ExtResource("6_wd6qt")]
+position = Vector2(1182, 417)
+motion_mode = 1
+
+[node name="enemy1" parent="." instance=ExtResource("2_7v2nl")]
+position = Vector2(895, 464)
+script = null
+
+[node name="CrashedDrone" parent="." instance=ExtResource("8_5fa7o")]
+position = Vector2(865, 720)
+
+[node name="CrashedDrone2" parent="." instance=ExtResource("8_5fa7o")]
+position = Vector2(1003, 725)
+
+[node name="CrashedDrone3" parent="." instance=ExtResource("8_5fa7o")]
+position = Vector2(711, 716)
+
+[connection signal="playerHit" from="Player" to="UI" method="_on_player_player_hit"]
+[connection signal="timeout" from="EntityManager/Enemy1Timer" to="EntityManager" method="_on_enemy_timer_timeout"]
+[connection signal="timeout" from="EntityManager/Enemy2Timer" to="EntityManager" method="_on_enemy_2_timer_timeout"]
+[connection signal="timeout" from="EntityManager/Enemy3Timer" to="EntityManager" method="_on_enemy_3_timer_timeout"]
+[connection signal="timeout" from="EntityManager/Enemy4Timer" to="EntityManager" method="_on_enemy_4_timer_timeout"]
+[connection signal="spawn_building" from="UI" to="." method="_on_ui_spawn_building"]

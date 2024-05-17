@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://b3vyjpyuuix22"]
+
+[ext_resource type="Script" path="res://Scripts/UI.gd" id="1_kbbx0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tjmhw"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_pi6hb"]
+font_size = 30
+
+[node name="UI" type="CanvasLayer" groups=["UI"]]
+script = ExtResource("1_kbbx0")
+starting_money = null
+starting_health = null
+
+[node name="Other" type="Button" parent="."]
+offset_left = 272.0
+offset_top = 928.0
+offset_right = 372.0
+offset_bottom = 959.0
+text = "OTHER"
+metadata/_edit_use_anchors_ = true
+
+[node name="ArcTower" type="Button" parent="."]
+offset_left = 160.0
+offset_top = 928.0
+offset_right = 260.0
+offset_bottom = 959.0
+text = "ARC TOWER"
+metadata/_edit_use_anchors_ = true
+
+[node name="CancelBuilding" type="Button" parent="."]
+offset_left = 396.0
+offset_top = 906.0
+offset_right = 414.0
+offset_bottom = 937.0
+scale = Vector2(1.78069, 1.78069)
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Money" type="Label" parent="HUD"]
+offset_right = 245.0
+offset_bottom = 42.0
+text = "LODS OF EMONE"
+label_settings = SubResource("LabelSettings_tjmhw")
+metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="Label" parent="HUD"]
+offset_left = 468.0
+offset_top = 10.0
+offset_right = 633.0
+offset_bottom = 52.0
+text = "HEalthy boi"
+label_settings = SubResource("LabelSettings_pi6hb")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Other" to="." method="_on_other_pressed"]
+[connection signal="pressed" from="ArcTower" to="." method="_on_arc_tower_pressed"]
+[connection signal="pressed" from="CancelBuilding" to="." method="_on_cancel_building_pressed"]

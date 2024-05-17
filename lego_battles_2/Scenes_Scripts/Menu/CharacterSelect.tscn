@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2lue66rb6mjb"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Menu/CharacterSelect.gd" id="1_t45hd"]
+
+[node name="CharacterSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_t45hd")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 30.0
+offset_right = -40.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 2.08
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 900)
+layout_mode = 2
+text = "1"
+
+[node name="Button2" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 900)
+layout_mode = 2
+text = "2"
+
+[node name="Button3" type="Button" parent="ScrollContainer/HBoxContainer"]
+custom_minimum_size = Vector2(500, 900)
+layout_mode = 2
+text = "3"
+
+[node name="Button4" type="Button" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+text = "4"
+
+[node name="Back" type="Button" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 956.0
+offset_right = 253.0
+offset_bottom = 987.0
+text = "back"
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 954.0
+offset_right = 425.0
+offset_bottom = 985.0
+text = "start"
+
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

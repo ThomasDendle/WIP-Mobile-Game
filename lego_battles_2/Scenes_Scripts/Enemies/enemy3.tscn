@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcrlk3qci6ux7"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/Enemies/enemy.gd" id="1_i51tj"]
+[ext_resource type="Texture2D" uid="uid://b0o5wi2e1vjx0" path="res://Assets/enemy3.png" id="2_216ql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aao3h"]
+size = Vector2(193, 107.25)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sl3yf"]
+radius = 70.1142
+
+[node name="enemy3" type="CharacterBody2D" groups=["enemy"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_i51tj")
+
+[node name="PhysicsHitbox" type="CollisionShape2D" parent="." groups=["enemy"]]
+position = Vector2(11.5, 33.625)
+shape = SubResource("RectangleShape2D_aao3h")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
+position = Vector2(-14, -32)
+scale = Vector2(0.310094, 0.310094)
+texture = ExtResource("2_216ql")
+
+[node name="BulletHitbox" type="Area2D" parent="."]
+position = Vector2(-36, -8)
+scale = Vector2(1.69706, 1.69706)
+
+[node name="HitBoxShape" type="CollisionShape2D" parent="BulletHitbox"]
+shape = SubResource("CircleShape2D_sl3yf")
+
+[node name="AttackPause" type="Timer" parent="."]
+
+[connection signal="area_entered" from="BulletHitbox" to="." method="_on_bullet_hitbox_area_entered"]
+[connection signal="timeout" from="AttackPause" to="." method="_on_attack_pause_timeout"]

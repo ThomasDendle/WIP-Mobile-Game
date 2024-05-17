@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgcc0lx2gvr2x"]
+
+[ext_resource type="Script" path="res://Scenes_Scripts/UI/upgrade_prompt.gd" id="1_4fyah"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qa8k5"]
+
+[node name="UpgradePrompt" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4fyah")
+
+[node name="UpgradeNoTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 134.0
+offset_top = 138.0
+offset_right = 629.0
+offset_bottom = 1036.0
+scale = Vector2(0.758, 0.758)
+texture = SubResource("CompressedTexture2D_qa8k5")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 848.0
+offset_right = 311.0
+offset_bottom = 879.0
+text = "ACCEPT"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
